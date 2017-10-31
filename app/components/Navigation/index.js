@@ -9,7 +9,7 @@ import React from 'react';
 
 function Navigation() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-3">
       <a className="navbar-brand" href="/">
         Navbar
       </a>
