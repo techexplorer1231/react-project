@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import Item from './Item';
 import Wrapper from './Wrapper';
 
-function ListItem(props) {
+function ListItem({ item }) {
   return (
     <Wrapper>
       <Item>
-        {props.item}
+        {item}
       </Item>
     </Wrapper>
   );

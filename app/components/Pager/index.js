@@ -6,33 +6,17 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
-function Pager({ error, count, previous, next }) {
+function Pager() {
   return (
-    <Pagination>
-      <PaginationItem>
-        <PaginationLink previous href="#" />
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#">{error}</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#">{count}</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#">{previous}</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#">{next}</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#">5</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink next href="#" />
-      </PaginationItem>
-    </Pagination>
+    <div className="clearfix">
+      <button type="button" className="btn btn-primary float-left">
+        Previous
+      </button>
+      <button type="button" className="btn btn-primary float-right">
+        Next
+      </button>
+    </div>
   );
 }
 
