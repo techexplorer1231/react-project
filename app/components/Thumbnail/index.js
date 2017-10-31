@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Img from 'components/Img/Loadable';
 
-function Thumbnail() {
+function Thumbnail({ name, url }) {
   return (
     <div className="col p-2">
       <div className="card">
@@ -11,8 +13,8 @@ function Thumbnail() {
           alt="Card cap"
         />
         <div className="card-body">
-          <h4 className="card-title">Bulbasaur</h4>
-          <a href="/" className="btn btn-success">
+          <h4 className="card-title">{name}</h4>
+          <a href={url} className="btn btn-success">
             More Information
           </a>
         </div>
@@ -20,5 +22,10 @@ function Thumbnail() {
     </div>
   );
 }
+
+Thumbnail.propTypes = {
+  name: PropTypes.any,
+  url: PropTypes.any,
+};
 
 export default Thumbnail;

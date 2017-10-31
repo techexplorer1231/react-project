@@ -1,7 +1,5 @@
 /**
- *
  * HomePage
- *
  */
 
 import React from 'react';
@@ -10,7 +8,9 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+
 import PokemonList from 'components/PokemonList/Loadable';
+import Pager from 'components/Pager/Loadable';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -41,12 +41,19 @@ export class HomePage extends React.PureComponent {
       previous,
       next,
     };
+    const paginationProps = {
+      error,
+      count,
+      previous,
+      next,
+    };
     return (
       <div>
         <Helmet>
           <title>Pokemon List</title>
           <meta name="description" content="Description of HomePage" />
         </Helmet>
+        <Pager {...paginationProps} />
         <PokemonList {...pokemonsListProps} />
       </div>
     );
@@ -84,7 +91,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
-
 const withReducer = injectReducer({ key: 'homePage', reducer });
 const withSaga = injectSaga({ key: 'homePage', saga });
 

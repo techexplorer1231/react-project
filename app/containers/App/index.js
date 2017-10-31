@@ -23,7 +23,7 @@ export default function App() {
   return (
     <div>
       <Navigation />
-      <div className="container">
+      <div className="container-fluid">
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route component={NotFoundPage} />
