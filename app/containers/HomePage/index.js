@@ -32,7 +32,15 @@ export class HomePage extends React.PureComponent {
   }
 
   render() {
-    const { loading, error, pokemons, count, previous, next } = this.props;
+    const {
+      loading,
+      error,
+      pokemons,
+      count,
+      previous,
+      next,
+      onLoadPokemon,
+    } = this.props;
     const pokemonsListProps = {
       loading,
       error,
@@ -53,15 +61,16 @@ export class HomePage extends React.PureComponent {
           <title>Pokemon List</title>
           <meta name="description" content="Description of HomePage" />
         </Helmet>
-        <Pager {...paginationProps} />
+        <Pager {...paginationProps} onLoadData={onLoadPokemon} />
         <PokemonList {...pokemonsListProps} />
-        <Pager {...paginationProps} />
+        <Pager {...paginationProps} onLoadData={onLoadPokemon} />
       </div>
     );
   }
 }
 
 HomePage.propTypes = {
+  onLoadPokemon: PropTypes.func,
   onFetchPokemons: PropTypes.func,
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
@@ -88,6 +97,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     onFetchPokemons: () => dispatch(loadPokemons()),
+    onLoadPokemon: () => dispatch(loadPokemons()),
   };
 }
 
