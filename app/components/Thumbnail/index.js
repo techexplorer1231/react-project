@@ -1,22 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Img from 'components/Img/Loadable';
 
-function Thumbnail({ name, url }) {
+function Thumbnail({ name, index }) {
+  const imgUrl = `https://raw.githubusercontent.com/dreamweaver1231/react-project/master/app/images/Pokemon/${index}.png`;
   return (
     <div className="col p-2">
       <div className="card">
-        <Img
-          className="card-img-top"
-          src="https://raw.githubusercontent.com/dreamweaver1231/react-project/master/app/images/Pokemon/3.png"
-          alt="Card cap"
-        />
+        <Img className="card-img-top" src={imgUrl} alt="Card cap" />
         <div className="card-body">
           <h4 className="card-title">{name}</h4>
-          <a href={url} className="btn btn-success">
+          <Link to={`/${index}`} className="btn btn-success">
             More Information
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -24,8 +22,8 @@ function Thumbnail({ name, url }) {
 }
 
 Thumbnail.propTypes = {
-  name: PropTypes.any,
-  url: PropTypes.any,
+  name: PropTypes.string,
+  index: PropTypes.number,
 };
 
 export default Thumbnail;

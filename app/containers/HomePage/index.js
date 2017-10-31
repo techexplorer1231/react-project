@@ -55,6 +55,7 @@ export class HomePage extends React.PureComponent {
         </Helmet>
         <Pager {...paginationProps} />
         <PokemonList {...pokemonsListProps} />
+        <Pager {...paginationProps} />
       </div>
     );
   }
