@@ -15,7 +15,8 @@ import {
  *
  * @return {object} An action object with a type of LOAD_REPOS
  */
-export function loadPokemons() {
+export function loadPokemons(data) {
+  console.log(data);
   return {
     type: LOAD_POKEMONS,
   };

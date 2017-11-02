@@ -7,33 +7,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Pager({ onLoadData }) {
+function Pager({ onLoadDataPrevious, onLoadDataNext, previous, next }) {
   return (
     <div className="clearfix">
       <button
         type="button"
-        onClick={onLoadData}
+        onClick={() => onLoadDataPrevious(previous)}
         className="btn btn-primary float-left"
       >
-        Previous
+        &#x3c;&#x3c;
       </button>
       <button
         type="button"
-        onClick={onLoadData}
+        onClick={() => onLoadDataNext(next)}
         className="btn btn-primary float-right"
       >
-        Next
+        &#x3e;&#x3e;
       </button>
     </div>
   );
 }
 
 Pager.propTypes = {
-  onLoadData: PropTypes.func,
+  onLoadDataPrevious: PropTypes.func,
+  onLoadDataNext: PropTypes.func,
   // error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   // count: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
-  // previous: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  // next: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  previous: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  next: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 };
 
 export default Pager;

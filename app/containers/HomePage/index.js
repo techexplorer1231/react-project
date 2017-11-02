@@ -39,7 +39,8 @@ export class HomePage extends React.PureComponent {
       count,
       previous,
       next,
-      onLoadPokemon,
+      onLoadPokemonPrevious,
+      onLoadPokemonNext,
     } = this.props;
     const pokemonsListProps = {
       loading,
@@ -59,18 +60,27 @@ export class HomePage extends React.PureComponent {
       <div>
         <Helmet>
           <title>Pokemon List</title>
-          <meta name="description" content="Description of HomePage" />
+          <meta name="description" content="Pokemons List" />
         </Helmet>
-        <Pager {...paginationProps} onLoadData={onLoadPokemon} />
+        <Pager
+          {...paginationProps}
+          onLoadDataPrevious={onLoadPokemonPrevious}
+          onLoadDataNext={onLoadPokemonNext}
+        />
         <PokemonList {...pokemonsListProps} />
-        <Pager {...paginationProps} onLoadData={onLoadPokemon} />
+        <Pager
+          {...paginationProps}
+          onLoadDataPrevious={onLoadPokemonPrevious}
+          onLoadDataNext={onLoadPokemonNext}
+        />
       </div>
     );
   }
 }
 
 HomePage.propTypes = {
-  onLoadPokemon: PropTypes.func,
+  onLoadPokemonPrevious: PropTypes.func,
+  onLoadPokemonNext: PropTypes.func,
   onFetchPokemons: PropTypes.func,
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
@@ -97,7 +107,9 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     onFetchPokemons: () => dispatch(loadPokemons()),
-    onLoadPokemon: () => dispatch(loadPokemons()),
+    onLoadPokemonPrevious: (e) => dispatch(loadPokemons(e)),
+    onLoadPokemonNext: (e) => dispatch(loadPokemons(e)),
+    dispatch,
   };
 }
 
