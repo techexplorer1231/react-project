@@ -11,4 +11,8 @@ injectGlobal`
   .btn {
     cursor: pointer;
   }
+
+  .card-body {
+    min-width: 15rem;
+  }
 `;

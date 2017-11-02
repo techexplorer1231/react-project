@@ -10,8 +10,9 @@ import PropTypes from 'prop-types';
 function Pager({ onLoadDataPrevious, onLoadDataNext, previous, next }) {
   /* eslint-disable no-unneeded-ternary */
   const isPreviousDisabled = previous === null ? true : false;
-  const isNextDisabled = next == null ? true : false;
+  const isNextDisabled = next === null ? true : false;
   /* eslint-enable no-unneeded-ternary */
+
   return (
     <div className="clearfix">
       <button
@@ -33,6 +34,11 @@ function Pager({ onLoadDataPrevious, onLoadDataNext, previous, next }) {
     </div>
   );
 }
+
+Pager.defaultProps = {
+  previous: null,
+  next: null,
+};
 
 Pager.propTypes = {
   onLoadDataPrevious: PropTypes.func,

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import Img from 'components/Img/Loadable';
 
@@ -15,9 +14,6 @@ function Thumbnail({ name, url }) {
         <Img className="card-img-top" src={imgUrl} alt="Card cap" />
         <div className="card-body">
           <h4 className="card-title">{name}</h4>
-          <Link to={`/${index}`} className="btn btn-success">
-            More Information
-          </Link>
         </div>
       </div>
     </div>
