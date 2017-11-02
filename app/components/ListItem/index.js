@@ -15,7 +15,7 @@ function ListItem({ item }) {
 }
 
 ListItem.propTypes = {
-  item: PropTypes.any,
+  item: PropTypes.node,
 };
 
 export default ListItem;
