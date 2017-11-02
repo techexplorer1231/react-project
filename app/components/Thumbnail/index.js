@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 
 import Img from 'components/Img/Loadable';
 
-function Thumbnail({ name, index }) {
+function Thumbnail({ name, url }) {
+  const data = url.split('/');
+  const index = data[data.length - 2];
   const imgUrl = `https://raw.githubusercontent.com/dreamweaver1231/react-project/master/app/images/Pokemon/${index}.png`;
+
   return (
     <div className="col p-2">
       <div className="card">
@@ -23,7 +26,7 @@ function Thumbnail({ name, index }) {
 
 Thumbnail.propTypes = {
   name: PropTypes.string,
-  index: PropTypes.number,
+  url: PropTypes.string,
 };
 
 export default Thumbnail;

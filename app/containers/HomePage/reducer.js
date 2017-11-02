@@ -21,6 +21,7 @@ const initialState = fromJS({
     previous: false,
     next: false,
     pokemons: false,
+    url: false,
   },
 });
 
@@ -37,6 +38,7 @@ function homeReducer(state = initialState, action) {
         .setIn(['pokemonData', 'count'], action.count)
         .setIn(['pokemonData', 'previous'], action.previous)
         .setIn(['pokemonData', 'next'], action.next)
+        .setIn(['pokemonData', 'url'], action.url)
         .set('loading', false);
     case LOAD_POKEMONS_ERROR:
       return state.set('error', action.error).set('loading', false);

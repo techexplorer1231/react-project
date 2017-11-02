@@ -15,6 +15,7 @@ import Pager from 'components/Pager/Loadable';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import { loadPokemons } from '../HomePage/actions';
+import { API_URL_INITIAL_FETCH } from '../HomePage/constants';
 import {
   makeSelectPokemons,
   makeSelectLoading,
@@ -106,7 +107,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    onFetchPokemons: () => dispatch(loadPokemons()),
+    onFetchPokemons: () => dispatch(loadPokemons(API_URL_INITIAL_FETCH)),
     onLoadPokemonPrevious: (e) => dispatch(loadPokemons(e)),
     onLoadPokemonNext: (e) => dispatch(loadPokemons(e)),
     dispatch,

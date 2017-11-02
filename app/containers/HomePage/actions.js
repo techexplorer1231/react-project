@@ -15,10 +15,10 @@ import {
  *
  * @return {object} An action object with a type of LOAD_REPOS
  */
-export function loadPokemons(data) {
-  console.log(data);
+export function loadPokemons(url) {
   return {
     type: LOAD_POKEMONS,
+    url,
   };
 }
 
@@ -29,13 +29,14 @@ export function loadPokemons(data) {
  *
  * @return {object}      An action object with a type of LOAD_REPOS_SUCCESS passing the pokemons
  */
-export function pokemonsLoaded({ count, previous, next, results }) {
+export function pokemonsLoaded({ count, previous, next, results }, url) {
   return {
     type: LOAD_POKEMONS_SUCCESS,
     count,
     previous,
     next,
     results,
+    url,
   };
 }
 
