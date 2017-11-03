@@ -10,7 +10,7 @@ function Thumbnail({ name, url }) {
   const capitalName = capitalize(name);
 
   return (
-    <Link to="/" className="col p-2">
+    <Link to="/detail" className="col p-2">
       <div className="card">
         <div className="card-header">{capitalName}</div>
         <Img className="card-img-top" src={imgUrl} alt="Card cap" />

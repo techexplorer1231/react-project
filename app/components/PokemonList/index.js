@@ -7,9 +7,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Thumbnail from 'components/Thumbnail/Loadable';
-import LoadingIndicator from 'components/LoadingIndicator';
-import List from 'components/List';
-import ListItem from 'components/ListItem';
+import LoadingIndicator from 'components/LoadingIndicator/Loadable';
+import List from 'components/List/Loadable';
+import ListItem from 'components/ListItem/Loadable';
 
 function PokemonList({ loading, error, pokemons }) {
   if (loading) {

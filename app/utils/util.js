@@ -1,7 +1,8 @@
 export function getIndex(url) {
-  const data = url.split('/');
-  const index = data[data.length - 2];
-  return `https://raw.githubusercontent.com/dreamweaver1231/react-project/master/app/images/Pokemon/${index}.png`;
+  const arr = url.split('/');
+  return `https://raw.githubusercontent.com/dreamweaver1231/react-project/master/app/images/Pokemon/${arr[
+    arr.length - 2
+  ]}.png`;
 }
 
 export function capitalize(word) {

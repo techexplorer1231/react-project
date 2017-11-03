@@ -2,7 +2,7 @@
  * HomePage
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -13,6 +13,7 @@ import injectReducer from 'utils/injectReducer';
 
 import PokemonList from 'components/PokemonList/Loadable';
 import Pager from 'components/Pager/Loadable';
+
 import { loadPokemons } from 'containers/HomePage/actions';
 import { API_URL_INITIAL_FETCH } from 'utils/constants';
 import {
@@ -22,11 +23,11 @@ import {
   makeSelectCount,
   makeSelectPrevious,
   makeSelectNext,
-} from './selectors';
-import reducer from './reducer';
-import saga from './saga';
+} from 'containers/HomePage/selectors';
+import reducer from 'containers/HomePage/reducer';
+import saga from 'containers/HomePage/saga';
 
-export class HomePage extends React.PureComponent {
+export class HomePage extends Component {
   componentDidMount() {
     this.props.onFetchPokemons();
   }
@@ -62,11 +63,6 @@ export class HomePage extends React.PureComponent {
           <title>Pokemon List</title>
           <meta name="description" content="Pokemons List" />
         </Helmet>
-        <Pager
-          {...paginationProps}
-          onLoadDataPrevious={onLoadPokemonPrevious}
-          onLoadDataNext={onLoadPokemonNext}
-        />
         <PokemonList {...pokemonsListProps} />
         <Pager
           {...paginationProps}
