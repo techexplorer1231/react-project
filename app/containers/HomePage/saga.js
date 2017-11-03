@@ -3,7 +3,8 @@
  */
 
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { LOAD_POKEMONS, API_URL_INITIAL_FETCH } from 'containers/HomePage/constants';
+import { LOAD_POKEMONS } from 'containers/HomePage/constants';
+import { API_URL_INITIAL_FETCH } from 'utils/constants';
 import {
   pokemonsLoaded,
   pokemonLoadingError,

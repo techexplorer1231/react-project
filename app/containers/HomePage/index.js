@@ -13,8 +13,8 @@ import injectReducer from 'utils/injectReducer';
 
 import PokemonList from 'components/PokemonList/Loadable';
 import Pager from 'components/Pager/Loadable';
-import { loadPokemons } from '../HomePage/actions';
-import { API_URL_INITIAL_FETCH } from '../HomePage/constants';
+import { loadPokemons } from 'containers/HomePage/actions';
+import { API_URL_INITIAL_FETCH } from 'utils/constants';
 import {
   makeSelectPokemons,
   makeSelectLoading,

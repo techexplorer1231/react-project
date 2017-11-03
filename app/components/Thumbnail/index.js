@@ -1,22 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Img from 'components/Img/Loadable';
+import { getIndex, capitalize } from 'utils/util';
 
 function Thumbnail({ name, url }) {
-  const data = url.split('/');
-  const index = data[data.length - 2];
-  const imgUrl = `https://raw.githubusercontent.com/dreamweaver1231/react-project/master/app/images/Pokemon/${index}.png`;
+  const imgUrl = getIndex(url);
+  const capitalName = capitalize(name);
 
   return (
-    <div className="col p-2">
+    <Link to="/" className="col p-2">
       <div className="card">
+        <div className="card-header">{capitalName}</div>
         <Img className="card-img-top" src={imgUrl} alt="Card cap" />
-        <div className="card-body">
-          <h4 className="card-title">{name}</h4>
-        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
