@@ -16,6 +16,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Navigation from 'components/Navigation/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
+import DetailPage from 'containers/DetailPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 export default function App() {
@@ -25,7 +26,7 @@ export default function App() {
       <div className="container-fluid">
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/detail" component={HomePage} />
+          <Route path="/detail" component={DetailPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>

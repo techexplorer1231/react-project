@@ -23,9 +23,9 @@ import {
   makeSelectCount,
   makeSelectPrevious,
   makeSelectNext,
-} from 'containers/HomePage/selectors';
-import reducer from 'containers/HomePage/reducer';
-import saga from 'containers/HomePage/saga';
+} from './selectors';
+import reducer from './reducer';
+import saga from './saga';
 
 export class HomePage extends Component {
   componentDidMount() {
